@@ -1,0 +1,13 @@
+site_name: Implementation of Made With ML
+
+nav:
+  - Home: index.md
+  - Workflows:
+    - Main: tagifai/main.md
+
+theme:
+  name: material
+plugins:
+  - mkdocstrings
+watch:
+  - .  # reload docs for any file changes

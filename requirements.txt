@@ -1,0 +1,13 @@
+numpy
+pandas
+pretty-errors
+nltk
+scikit-learn
+imbalanced-learn
+snorkel
+mlflow
+optuna
+rich
+typer
+fastapi
+uvicorn
