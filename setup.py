@@ -37,7 +37,7 @@ setup(
     packages=find_namespace_packages(),
     install_requires=[required_packages],
     extras_require={
-        "dev": docs_packages + style_packages,
+        "dev": docs_packages + style_packages + test_packages + ["pre-commit"],
         "docs": docs_packages,
         "test": test_packages,
     },
