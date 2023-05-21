@@ -46,8 +46,8 @@ anonymous_usage_statistics:
 notebooks:
 include_rendered_content:
   expectation_suite: false
-  globally: false
   expectation_validation_result: false
+  globally: false
 fluent_datasources:
   local_data:
     type: pandas_filesystem
