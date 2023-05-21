@@ -67,6 +67,7 @@ class TestLabelEncoder:
         assert np.array_equal(label_encoder.encode(y_decoded), np.array(y_encoded))
         assert label_encoder.decode(y_encoded) == y_decoded
 
+
 @pytest.mark.parametrize(
     "text, lower, stem, stopwords, cleaned_text",
     [
@@ -100,6 +101,7 @@ def df():
     df = pd.DataFrame(data * 10)
     return df
 
+
 @pytest.mark.parametrize(
     "labels, unique_labels",
     [
@@ -109,7 +111,6 @@ def df():
         (["c0", "c1", "c2"], ["c0", "c1", "c2"]),  # complete overlap
     ],
 )
-
 def test_replace_oos_labels(df, labels, unique_labels):
     replaced_df = data.replace_oos_labels(
         df=df.copy(), labels=labels, label_col="tag", oos_label="other"

@@ -4,7 +4,7 @@ from setuptools import find_namespace_packages, setup
 
 # Load packages from requirements.txt
 BASE_DIR = Path(__file__).parent
-with open(Path(BASE_DIR, "requirements.txt"), "r") as file:
+with open(Path(BASE_DIR, "requirements.txt")) as file:
     required_packages = [line.strip() for line in file.readlines()]
 
 docs_packages = [

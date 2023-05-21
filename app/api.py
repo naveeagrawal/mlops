@@ -19,6 +19,7 @@ app = FastAPI(
     version="0.0.1",
 )
 
+
 def construct_response(f):
     """Construct a JSON response for an endpoint."""
 
@@ -38,6 +39,7 @@ def construct_response(f):
 
     return wrap
 
+
 @app.get("/", tags=["General"])
 @construct_response
 def _index(request: Request) -> Dict:
@@ -49,6 +51,7 @@ def _index(request: Request) -> Dict:
     }
     return response
 
+
 @app.on_event("startup")
 def load_artifacts():
     global artifacts
@@ -56,18 +59,20 @@ def load_artifacts():
     artifacts = main.load_artifacts(run_id=run_id)
     logger.info("Ready for inference!")
 
+
 @app.get("/performance", tags=["Performance"])
 @construct_response
 def _performance(request: Request, filter: str = None) -> Dict:
     """Get the performance metrics."""
     performance = artifacts["performance"]
-    data = {"performance":performance.get(filter, performance)}
+    data = {"performance": performance.get(filter, performance)}
     response = {
         "message": HTTPStatus.OK.phrase,
         "status-code": HTTPStatus.OK,
         "data": data,
     }
     return response
+
 
 @app.get("/args/{arg}", tags=["Arguments"])
 @construct_response
@@ -82,18 +87,6 @@ def _arg(request: Request, arg: str) -> Dict:
     }
     return response
 
-@app.get("/args", tags=["Arguments"])
-@construct_response
-def _arg(request: Request) -> Dict:
-    """Get a specific parameter's value used for the run."""
-    response = {
-        "message": HTTPStatus.OK.phrase,
-        "status-code": HTTPStatus.OK,
-        "data": {
-            "args": vars(artifacts["args"]),
-        },
-    }
-    return response
 
 @app.post("/predict", tags=["Prediction"])
 @construct_response

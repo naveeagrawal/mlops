@@ -21,6 +21,7 @@ warnings.filterwarnings("ignore")
 
 app = typer.Typer()
 
+
 @app.command()
 def elt_data() -> None:
     """Extract, Load and Transform the data assets."""
@@ -32,6 +33,7 @@ def elt_data() -> None:
     df = df[df.tag.notnull()]  # drop rows with no tag
     df.to_csv(Path(config.DATA_DIR, "labeled_projects.csv"), index=False)
     logger.info("✅ Saved data!")
+
 
 @app.command()
 def train_model(
@@ -77,6 +79,7 @@ def train_model(
     open(Path(config.CONFIG_DIR, "run_id.txt"), "w").write(run_id)
     utils.save_dict(performance, Path(config.CONFIG_DIR, "performance.json"))
 
+
 @app.command()
 def optimize(
     args_fp: str = "config/args.json", study_name: str = "optimization", num_trials: int = 20
@@ -108,6 +111,7 @@ def optimize(
     utils.save_dict({**args.__dict__, **study.best_trial.params}, args_fp, cls=NumpyEncoder)
     print(f"\nBest value (f1): {study.best_trial.value}")
     print(f"Best hyperparameters: {json.dumps(study.best_trial.params, indent=2)}")
+
 
 @app.command()
 def predict_tag(text: str = "", run_id: str = None) -> List:
@@ -155,6 +159,7 @@ def load_artifacts(run_id: str = None) -> Dict:
         "model": model,
         "performance": performance,
     }
+
 
 if __name__ == "__main__":
     app()

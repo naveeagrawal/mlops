@@ -69,7 +69,7 @@ def replace_minority_labels(df, label_col, min_freq, new_label="other"):
     return df
 
 
-class LabelEncoder(object):
+class LabelEncoder:
     """Encode labels into unique indices."""
 
     def __init__(self, class_to_index={}):
@@ -110,7 +110,7 @@ class LabelEncoder(object):
 
     @classmethod
     def load(cls, fp):
-        with open(fp, "r") as fp:
+        with open(fp) as fp:
             kwargs = json.load(fp=fp)
         return cls(**kwargs)
 

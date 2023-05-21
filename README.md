@@ -13,13 +13,13 @@ python3 -m pip install -e .
 - Dev server
 ```bash
 uvicorn app.api:app --host 0.0.0.0 --port 8000 --reload --reload-dir tagifai --reload-dir app
-``` 
+```
 - Production server
 ```bash
 gunicorn -c app/gunicorn.py -k uvicorn.workers.UvicornWorker app.api:app  # prod
 ```
 
-### Topics covered so far 
-1. Testing code 
-1. Testing data 
+### Topics covered so far
+1. Testing code
+1. Testing data
 1. Testing model

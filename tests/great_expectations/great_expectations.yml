@@ -41,8 +41,8 @@ data_docs_sites:
     site_index_builder:
       class_name: DefaultSiteIndexBuilder
 anonymous_usage_statistics:
-  data_context_id: a27746c2-2624-4c49-b637-246fa26eefac
   enabled: true
+  data_context_id: a27746c2-2624-4c49-b637-246fa26eefac
 notebooks:
 include_rendered_content:
   expectation_suite: false

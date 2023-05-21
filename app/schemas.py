@@ -8,6 +8,7 @@ from pydantic import BaseModel, validator
 class Text(BaseModel):
     text: str = Query(None, min_length=1)
 
+
 class PredictPayload(BaseModel):
     texts: List[Text]
 
