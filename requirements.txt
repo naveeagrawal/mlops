@@ -9,6 +9,6 @@ optuna
 pandas
 rich
 scikit-learn
-snorkel
+# snorkel
 typer
 uvicorn
