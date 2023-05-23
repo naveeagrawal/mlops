@@ -42,5 +42,3 @@ setup(
         "test": test_packages,
     },
 )
-
-print(required_packages)
