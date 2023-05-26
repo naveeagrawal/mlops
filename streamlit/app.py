@@ -1,7 +1,8 @@
-import pandas as pd
 from pathlib import Path
-import streamlit as st
 
+import pandas as pd
+
+import streamlit as st
 from config import config
 from tagifai import main, utils
 

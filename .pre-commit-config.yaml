@@ -58,3 +58,4 @@ repos:
         args: ["dvc"]
         language: system
         pass_filenames: false
+exclude: "tests/great_expectations/great_expectations.yml"
