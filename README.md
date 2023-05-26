@@ -1,3 +1,5 @@
+## Actions
+Changed just to trigger action 
 ## To do
 - [ ] Modify clean_text function in tagifai/data.py to return dataframe
 - [ ] Avoid using snorkel. It has very small utility for our project, but huge size
